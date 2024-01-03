@@ -7,7 +7,7 @@ def uppercase(str):
     newstr = ""
     for i in range(0, len(str) - 1):
         if 97 <= ord(str[i]) <= 122:
-            newstr = newstr + (chr(ord(i) - 32))
+            newstr = newstr + (chr(ord(chr(i)) - 32))
         else:
             newstr = newstr + (chr(i))
     print("{:s}".format(newstr))
