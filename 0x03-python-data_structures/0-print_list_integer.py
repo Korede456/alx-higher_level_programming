@@ -4,9 +4,8 @@ def print_list_integer(my_lsit=[]):
 
 
 def print_list_integer(my_list=[]):
+    num = 0
 
-    print("{}".format(my_list[0]))
-    print("{}".format(my_list[1]))
-    print("{}".format(my_list[2]))
-    print("{}".format(my_list[3]))
-    print("{}".format(my_list[4]))
+    while num < len(my_list):
+        print("{}".format(my_list[num]))
+        num += 1
