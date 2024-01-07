@@ -7,7 +7,7 @@ def multiple_returns(sentence):
     length = len(sentence)
     first = ""
     if sentence == "" or sentence == None:
-        first = ""
+        first = None
     else:
         first = sentence[0]
     return (length, first)
