@@ -4,10 +4,8 @@ def add_tuple(tuple_a=(), tuple_b=()):
 
 
 def add_tuple(tuple_a=(), tuple_b=()):
-    a1 = tuple_a[0] if tuple_a[0] else 0
-    a2 = tuple_a[1] if tuple_a[1] else 0
-    b1 = tuple_b[0] if tuple_b[0] else 0
-    b2 = tuple_b[1] if tuple_b[1] else 0
+    a = tuple_a[:2] + (0, 0)
+    b = tuple_b[:2] + (0, 0)
 
-    result = ((a1 + b1), (a2 + b2))
-    print("{}".format(result))
+    result = (a[0] + b[0], a[1] + b[1])
+    return result
