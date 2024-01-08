@@ -5,6 +5,7 @@ def print_list_integer(my_lsit=[]):
 
 def print_list_integer(my_list=[]):
     if not my_list:
-        return None
-    for num in my_list:
-        print("{}".format(num))
+        Print(None)
+    else:
+        for num in my_list:
+            print("{}".format(num))
