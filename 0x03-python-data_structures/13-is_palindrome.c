@@ -24,7 +24,7 @@ int is_palindrome(listint_t **head)
 
 	if (*head == NULL)
 	{
-		return (0);
+		return (1);
 	}
 	current = *head;
 
