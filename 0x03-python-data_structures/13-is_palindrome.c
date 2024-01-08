@@ -45,7 +45,7 @@ int is_palindrome(listint_t **head)
 	while (idx2 < size)
 	{
 		if (array[idx2] != array2[idx2])
-			return (1);
+			return (0);
 		idx2++;
 	}
 	return (1);
