@@ -17,11 +17,12 @@ int is_palindrome(listint_t **head)
 	int idx;
 	int idx2;
 	int array_size;
+	int size;
 
 	idx = 0;
 	idx2 = 0;
 
-	if (!*head)
+	if (*head == NULL)
 	{
 		return (1);
 	}
@@ -33,13 +34,19 @@ int is_palindrome(listint_t **head)
 		idx += 1;
 		current = current->next;
 	}
-	array_size = sizeof(array) / sizeof(array[0]);
+	array_size = sizeof(array) / sizeof(int);
 	while (array_size > 0)
 	{
-		array2[idx2] = array[array_size - 1];
-		array_size -= 1;
+		array2[array_size - 1] = array[array_size - 1];
+		array_size--;
 	}
-	if (array == array2)
-		return (1);
-	return (0);
+
+	size = sizeof(array) / sizeof(int);
+	while (idx2 < size)
+	{
+		if (array[idx2] != array2[idx2])
+			return (0);
+		idx2++;
+	}
+	return (1);
 }
