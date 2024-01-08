@@ -42,3 +42,4 @@ int is_palindrome(listint_t **head)
 	if (array == array2)
 		return (1);
 	return (0);
+}
