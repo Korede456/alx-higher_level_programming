@@ -4,8 +4,10 @@ def simple_delete(a_dictionary, key=""):
 
 
 def simple_delete(a_dictionary, key=""):
-    new_dictionary = {}
-    new_dictionary.update(a_dictionary)
+    new_dict = {}
 
-    del((new_dictionary)[key])
-    return new_dictionary
+    for prop, value in a_dictionary.items():
+        if prop != key:
+            new_dict[prop] = value
+
+    return new_dict
