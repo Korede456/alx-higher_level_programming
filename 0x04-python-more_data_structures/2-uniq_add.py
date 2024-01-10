@@ -3,7 +3,7 @@ def uniq_add(my_list=[]):
     pass
 
 
-def uniq_ass(my_list=[]):
+def uniq_add(my_list=[]):
     new_list = []
     uniq_sum = 0
     for item in my_list:
