@@ -6,4 +6,5 @@ def update_dictionary(a_dictionary, key, value):
 def update_dictionary(a_dictionary, key, value):
     new_dictionary = a_dictionary
     (new_dictionary)[key] = value
-    print(new_dictionary)
+
+    return new_dictionary
