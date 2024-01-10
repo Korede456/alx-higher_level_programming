@@ -6,7 +6,7 @@ def only_diff_elements(set_1, set_2):
 def only_diff_elements(set_1, set_2):
     new_set = []
 
-    def func(set_1={}, set_2{}):
+    def func(set_1={}, set_2={}):
         for item in set_1:
             if item not in set_2:
                 new_set.append(item)
