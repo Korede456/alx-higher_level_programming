@@ -4,4 +4,4 @@ def print_sorted_dictionary(a_dictionary):
 
 
 def print_sorted_dictionary(a_dictionary):
-    print(dict(sorted(a_dictionary)
+    print(dict(sorted(a_dictionary)))
