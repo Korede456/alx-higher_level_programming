@@ -4,4 +4,9 @@
 
 def lookup(obj):
     """Return a list of an object's available attributes."""
-    return (dir(obj))
+
+    list = []
+    for attr in dir(obj):
+        if not callable(getattr(obj, attr)) or callable(getattr(obj, attr)):
+            list.append(attr)
+    return (list)
