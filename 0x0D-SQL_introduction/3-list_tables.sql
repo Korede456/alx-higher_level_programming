@@ -1,3 +1,3 @@
 --lists all the tables of a database in my MySQL server
-USE mysql;
+USE $1;
 SHOW TABLES;
