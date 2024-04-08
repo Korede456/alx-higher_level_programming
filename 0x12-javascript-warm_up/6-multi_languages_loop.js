@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-const strings = ["C is fun", "Python is cool", "JavaScript is amazing"];
-strings.forEach((sentence)=>{
-	console.log(sentence);
+const strings = ['C is fun', 'Python is cool', 'JavaScript is amazing'];
+strings.forEach((sentence) => {
+  console.log(sentence);
 });
