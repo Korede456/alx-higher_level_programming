@@ -1,8 +1,15 @@
 #!/usr/bin/python3
-engine = create_engine('mysql+mysqldb://{}:{}@localhost/{}'.format("root", "root", "hbtn_0e_0_usa"), pool_pre_ping=True)
-Base.metadata.create_all(engine)
+""" extract and list all states from a database """
+import MySQLdb
+import sys
 
-session = Session(engine)
-for state in session.query(State).order_by(State.id).all():
-    print("{}: {}".format(state.id, state.name))
-session.close()
+if __name__ == "__main__":
+    db = MySQLdb.connec(host='localhost', user=sys.argv[1],
+                        passwd=sys.argv[2], db=sys.argv[3], port=3306)
+    cursor = db.cursor()
+    cursor.execute('SELECT * FROM states')
+    rows = cursor.fetchall()
+    for row in rows:
+        print(row)
+    cursor.close()
+    db.close()
