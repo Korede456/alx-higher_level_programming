@@ -6,10 +6,10 @@ module.exports = class Rectangle {
     if ((w > 0) && (h > 0)) {
       this.width = w;
       this.height = h;
-      this.print = function (width, height) {
-        for (let i = 0; i < height; i++) {
+      this.print = function () {
+        for (let i = 0; i < this.height; i++) {
           let shape = '';
-          for (let j = 0; j < width; j++) {
+          for (let j = 0; j < this.width; j++) {
             shape += 'X';
           }
           console.log(shape);
