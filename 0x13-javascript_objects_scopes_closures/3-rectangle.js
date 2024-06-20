@@ -17,5 +17,5 @@ module.exports = class Rectangle {
       }
       console.log(shape);
     }
-  };
+  }
 };
