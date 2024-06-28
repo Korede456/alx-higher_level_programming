@@ -1,18 +1,29 @@
 #!/usr/bin/python3
-""" Lists all cities from the database hbtn_0e_4_usa """
+"""
+Script that takes in the name of a state as an argument and lists
+all cities of that state, using the database
+"""
 import MySQLdb
-import sys
+from sys import argv
 
-if __name__ == "__main__":
-    db = MySQLdb.connect(
-                        host="localhost", user=sys.argv[1],
-                        passwd=sys.argv[2], db=sys.argv[3], port=3306)
-    cursor = db.cursor()
-    cursor.execute("""SELECT cities.name FROM
-                    cities INNER JOIN states ON states.id=cities.state_id
-                    WHERE states.name=%s""", (sys.argv[4],))
-    rows = cursor.fetchall()
-    temporary = list(row[0] for row in rows)
-    print(*temporary, sep=", ")
-    cursor.close()
+# The code should not be executed when imported
+if __name__ == '__main__':
+    # make a connection to the database
+    db = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
+                         passwd=argv[2], db=argv[3])
+
+    cur = db.cursor()
+    cur.execute("SELECT cities.id, cities.name FROM cities\
+                INNER JOIN states ON cities.state_id = states.id\
+                WHERE states.name = %s", [argv[4]])
+
+    rows = cur.fetchall()
+    j = []
+    for i in rows:
+        j.append(i[1])
+            print(", ".join(j))
+
+    # Clean up process
+    cur.close()
     db.close()
+
