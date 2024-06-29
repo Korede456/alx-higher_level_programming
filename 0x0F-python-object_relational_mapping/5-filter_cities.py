@@ -18,12 +18,12 @@ if __name__ == '__main__':
     cursor = db.cursor()
     qry = """SELECT cities.name FROM cities\
              INNER JOIN states ON cities.state_id = states.id \
-             WHERE states.name = '{}'
+             WHERE states.name = %s
              OREDER BY cities.id ASC
-          """.format(state_name)
+          """
 
-    cursor.execute(qry)
-    data = [e[0] for e in cursor.fetchall()]
+    cursor.execute(qry, (state_name,))
+    data = [row[0] for row in cursor.fetchall()]
     print(*data, sep=', ')
     cursor.close()
     db.close()
