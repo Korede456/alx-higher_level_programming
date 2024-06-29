@@ -8,21 +8,21 @@ from sys import argv
 
 # The code should not be executed when imported
 if __name__ == '__main__':
-    # make a connection to the database
-    db = MySQLdb.connect(host="localhost", port=3306, user=argv[1],
-                         passwd=argv[2], db=argv[3])
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database_name = sys.argv[3]
+    state_name = sys.argv[4].split('\'')[0]
 
-    cur = db.cursor()
-    cur.execute("SELECT cities.id, cities.name FROM cities\
-                INNER JOIN states ON cities.state_id = states.id\
-                WHERE states.name = %s", [argv[4]])
+    db = MySQL.connect(user=username, passwd=password, db=database_name)
+    cursor = db.cursor()
+    qry = """SELECT cities.name FROM cities\
+             INNER JOIN states ON cities.state_id = states.id \
+             WHERE states.name = '{}'
+             OREDER BY cities.id ASC
+          """.format(state_name)
 
-    rows = cur.fetchall()
-    j = []
-    for i in rows:
-        j.append(i[1])
-        print(", ".join(j))
-
-    # Clean up process
-    cur.close()
+    cursor.execute(qry)
+    data = [e[0] for e in cursor.fetchall()]
+    print(*data, sep=', ')
+    cursor.close()
     db.close()
