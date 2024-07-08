@@ -2,16 +2,13 @@
 
 import urllib.request
 import urllib.parse
-import sys
+from sys import argv
 
 if __name__ == '__main__':
-    url = sys.argv[1]
-    email = sys.argv[2]
-
-    data = urllib.parse.urlencode({'email': email})
+    data = urllib.parse.urlencode({'email': argv[2]})
     data = data.encode('ascii')
-    req = urllib.request.Request(url, data)
+    req = urllib.request.Request(argv[1], data)
 
     with urllib.request.urlopen(req) as response:
-        body = response.read()
-        print(body.decode('utf-8'))
+        query_ = response.read()
+        print(query_.decode('utf-8'))
