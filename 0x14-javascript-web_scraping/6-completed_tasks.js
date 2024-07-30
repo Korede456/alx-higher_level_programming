@@ -14,6 +14,14 @@ request.get(url, (error, response, body) => {
     console.error(error);
     return;
   }
-  const completed = JSON.parse(body);
+
+  const completed = {};
+  body.forEach((todo) => {
+    if (todo.completed) {
+      completed[todo.userId] = 1;
+    } else {
+      completed[todo.userId] += 1;
+    }
+  });
   console.log(completed);
 });
