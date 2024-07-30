@@ -20,9 +20,9 @@ request.get(url, { json: true }, (error, response, body) => {
     if (todo.completed) {
       if (!completed[todo.userId]) {
         completed[todo.userId] = 1;
-      }
-    } else {
+      } else {
       completed[todo.userId] += 1;
+      }
     }
   });
   console.log(completed);
