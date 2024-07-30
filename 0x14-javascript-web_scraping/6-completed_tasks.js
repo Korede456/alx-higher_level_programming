@@ -21,7 +21,7 @@ request.get(url, { json: true }, (error, response, body) => {
       if (!completed[todo.userId]) {
         completed[todo.userId] = 1;
       } else {
-      completed[todo.userId] += 1;
+        completed[todo.userId] += 1;
       }
     }
   });
