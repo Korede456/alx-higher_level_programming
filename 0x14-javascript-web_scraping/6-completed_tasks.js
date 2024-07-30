@@ -9,7 +9,7 @@ if (process.argv.length < 3) {
 
 const url = process.argv[2];
 
-request.get(url, { json:true }, (error, response, body) => {
+request.get(url, { json: true }, (error, response, body) => {
   if (error) {
     console.error(error);
     return;
@@ -18,7 +18,9 @@ request.get(url, { json:true }, (error, response, body) => {
   const completed = {};
   body.forEach((todo) => {
     if (todo.completed) {
-      completed[todo.userId] = 1;
+      if (!completed[todo.userId]) {
+        completed[todo.userId] = 1;
+      }
     } else {
       completed[todo.userId] += 1;
     }
