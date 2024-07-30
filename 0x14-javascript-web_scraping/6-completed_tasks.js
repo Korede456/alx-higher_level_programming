@@ -9,7 +9,7 @@ if (process.argv.length < 3) {
 
 const url = process.argv[2];
 
-request.get(url, (error, response, body) => {
+request.get(url, { json:true }, (error, response, body) => {
   if (error) {
     console.error(error);
     return;
